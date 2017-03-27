@@ -15,7 +15,7 @@
 <div class="detailDivCenter">
 	<img src="./content/forelink_logo.jpg">
 	<h1>인적 자원 관리 시스템. - 신규등록</h1>
-	<form id="loginForm" method="post" action="loginForm">
+	<form id="joinFore" action="joinCreate" method="post" enctype="multipart/form-data">
 	<table class="loginTable">
 		<tr>
 			<th>ID</th>
@@ -32,7 +32,7 @@
 			
 		</tr>
 		<tr>
-			<td colspan='2'><input class="submitLogin" type="button" value="등록" onclick="join()"/>
+			<td colspan='2'><input class="submitLogin" type="button" value="등록" id="join" onclick="Join(this)"/>
 		</tr>
 		<tr>
 			<td colspan='2'><input class="submitLogin" type="button" value="초기화면" onclick="location.href='index.jsp'"></td>

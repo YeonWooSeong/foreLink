@@ -256,7 +256,51 @@ public class EmployeeDao {
 		
 		return list;
 	}
-
+	
+	
+	public void joinEmployee(Connection con , EmployeeEntity entity) {	
+		PreparedStatement pstmt = null;
+		
+		try{
+			String sql = "select id as id,pass as pass from employeejoin where id ='?',and pass = '?'";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, entity.getId());
+			pstmt.setString(2, entity.getPass());
+			int result = 0;
+			result = pstmt.executeUpdate();
+			System.out.println("success create join- chk");
+			if(result == 0){
+				throw new SQLException("join - Insert error chk");
+			}
+		}catch(SQLException e){
+			System.out.println("EmployeeDAO - join -  Employee  chk error execption: " + e.getMessage());
+		}
+	}
+	
+	
+	public void checkJoin(Connection con , EmployeeEntity entity) {	
+		PreparedStatement pstmt = null;
+		
+		try{
+			String sql = "insert into employeeJoin(id,pass,name)"
+						+ " values(?,?,?)";
+		
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, entity.getId());
+			pstmt.setString(2, entity.getPass());
+			
+			int result = 0;
+			result = pstmt.executeUpdate();
+			System.out.println("success create join");
+			if(result == 0){
+				throw new SQLException("join - Insert error");
+			}
+		}catch(SQLException e){
+			System.out.println("EmployeeDAO - join -  Employee : " + e.getMessage());
+		}
+	}
+	
 	
 	public void insertEmployee(Connection con , EmployeeEntity entity) {	//���� �߰� �޼ҵ�
 		PreparedStatement pstmt = null;

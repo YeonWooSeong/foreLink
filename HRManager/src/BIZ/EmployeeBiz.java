@@ -51,6 +51,40 @@ public class EmployeeBiz {
 		return list;
 	}
 	
+	public void joinEmployee(EmployeeEntity entity) throws SQLException, ClassNotFoundException{
+		Connection con = jdbc.connection();
+		
+		try{
+				
+			EmployeeDao dao = new EmployeeDao();
+			
+			dao.joinEmployee(con, entity);
+			System.out.println("EmployeeBiz - insertEmployee : success");
+		}catch(Exception e){
+			con.rollback();
+			System.out.println("EmployeeBiz - insertEmployee : " + e.getMessage());
+		}finally{
+			con.close();
+		}
+		
+	}
+	
+	public void checkJoin(EmployeeEntity entity) throws SQLException, ClassNotFoundException{
+		Connection con = jdbc.connection();
+		try{
+			EmployeeDao dao = new EmployeeDao();
+			dao.checkJoin(con, entity);
+			System.out.println("EmployeeBiz - insertEmployee - chk join : success");
+		}catch(Exception e){
+			con.rollback();
+			System.out.println("EmployeeBiz - insertEmployee  - chk join: " + e.getMessage());
+		}finally{
+			con.close();
+		}
+		
+	}
+	
+	
 	public void insertEmployee(EmployeeEntity entity) throws SQLException, ClassNotFoundException{
 		Connection con = jdbc.connection();
 		

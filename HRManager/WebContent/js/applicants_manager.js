@@ -1,9 +1,21 @@
-function join(){
+function Join(input){
 	var id=document.getElementById("id").value;
 	var pass=document.getElementById("pass").value;
- 	var name=document.getElementById("name").value;
- 	
-}	
+	var name=document.getElementById("name").value;
+	
+	if(id==""){
+		alert("아이디를 입력해주세요.");
+		return;
+	}else if(pass==""){
+		alert("비밀번호를 입력해주세요.");
+		return;
+	}else if(name==""){
+		alert("이름을 입력해주세요.");
+		return;
+	}else{
+		document.getElementById("joinFore").submit();
+	}
+}
 
 
 
@@ -11,15 +23,15 @@ function login(){
 	
 	var id=document.getElementById("id").value;
 	var pass=document.getElementById("pass").value;
-	
 	var loginForm=document.getElementById("loginForm");
-	
-	if(id!="forelink"||pass!="forelink1"){
-		alert("아이디와 비밀번호를 다시 입력해주세요.");
-		location.reload();
+	if(id==""){
+		alert("아이디를 입력해주세요.");
+		return;
+	}else if(pass==""){
+		alert("비밀번호를 입력해주세요.");
 		return;
 	}else{
-		loginForm.submit();
+		document.getElementById("loginForm").submit();
 	}
 }
 

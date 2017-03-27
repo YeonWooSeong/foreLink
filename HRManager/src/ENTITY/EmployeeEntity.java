@@ -1,27 +1,54 @@
 package ENTITY;
 
-public class EmployeeEntity {	//Á÷¿ø³»¿ª °´Ã¼ Å¬·¡½º
-	private int no;			//dbÀÇ ½ÃÄö½º °ª. Á÷¿ø ±¸ºÐÀ» À§ÇØ »ç¿ë
-	private String name;	//ÀÌ¸§
-	private String sex;		//¼ºº°
-	private String phone;	//¿¬¶ôÃ³
-	//ÀÌ¸ÞÀÏ Ãß°¡
-	private String email; //ÀÌ¸ÞÀÏ
-	private String birth;	//»ý³â¿ùÀÏ
-	private String license;		//ÀÚ°ÝÁõ
-	private String address;		//ÁÖ¼Ò
-	private String education;	//ÇÐ·Â
-	private String graduateDate;	//Á¹¾÷³â¿ù
-	private String skill;	//½ºÅ³
-	private String job;		//¾÷¹«
-	private String grade;	//µî±Þ
-	private String startdate;	//°æ·Â½ÃÀÛ³â¿ù
-	private String blankPeriod;	//°ø¹é±â°£
-	private String totalCareer;	//ÃÑ°æ·Â
+public class EmployeeEntity {	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ Å¬ï¿½ï¿½ï¿½ï¿½
+	private int no;			//dbï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	private String name;	//ï¿½Ì¸ï¿½
+	private String sex;		//ï¿½ï¿½ï¿½ï¿½
+	private String phone;	//ï¿½ï¿½ï¿½ï¿½Ã³
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	private String email; //ï¿½Ì¸ï¿½ï¿½ï¿½
+	private String birth;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String license;		//ï¿½Ú°ï¿½ï¿½ï¿½
+	private String address;		//ï¿½Ö¼ï¿½
+	private String education;	//ï¿½Ð·ï¿½
+	private String graduateDate;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String skill;	//ï¿½ï¿½Å³
+	private String job;		//ï¿½ï¿½ï¿½ï¿½
+	private String grade;	//ï¿½ï¿½ï¿½
+	private String startdate;	//ï¿½ï¿½Â½ï¿½ï¿½Û³ï¿½ï¿½
+	private String blankPeriod;	//ï¿½ï¿½ï¿½ï¿½â°£
+	private String totalCareer;	//ï¿½Ñ°ï¿½ï¿½
 	private String availdate;
 	private String comment;
 	private String description;
 	
+	private String id;
+	private String pass;
+	
+	public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
+	public String getPass() {
+		return pass;
+	}
+
+
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+
+
 	public EmployeeEntity() {
 		// TODO Auto-generated constructor stub
 	}

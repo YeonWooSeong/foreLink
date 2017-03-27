@@ -15,7 +15,7 @@
 <div class="detailDivCenter">
 	<img src="./content/forelink_logo.jpg">
 	<h1>인적 자원 관리 시스템.</h1>
-	<form id="loginForm" method="post" action="loginForm">
+	<form id="loginForm" action="loginForm" method="post" enctype="multipart/form-data">
 	<table class="loginTable">
 		<tr>
 			<th>ID</th>

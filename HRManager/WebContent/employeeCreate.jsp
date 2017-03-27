@@ -224,7 +224,7 @@
 			<tr><td colspan="4" height="15"></td></tr>
 						
 			<tr>
-				<th>통화내용</th><td colspan="3"><textarea rows="6" cols="57"  name="callContents"></textarea></td>
+				<th>통화내용</th><td colspan="3"><textarea rows="6" cols="57"  name="callContents">[${searchName}]</textarea></td>
 			</tr>		
 		</table>
 		<div id="input-div">
