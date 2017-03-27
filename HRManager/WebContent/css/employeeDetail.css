@@ -1,0 +1,200 @@
+@CHARSET "EUC-KR";
+
+body{	
+	margin:0px;
+	padding:0px;
+}
+
+#container{
+	margin : 0px;
+	padding : 0px;
+	text-overflow:clip;
+	white-space:nowrap;
+}
+
+#header{
+	margin : 0px;
+	padding : 0px;
+	height : 50px;
+	background-color : #f1f1f1;
+	text-overflow:clip;
+	white-space:nowrap;
+	vertical-align: middle;
+}
+
+#header-l{
+	margin-left : 55px;
+	float : left;
+	font-size : 30px;
+}
+
+#header-r{
+	margin-right : 15px;
+	margin-top : 5px;
+	float : right;
+}
+
+#main{
+	width : 95%;
+	padding : 10px;
+}
+
+#menu{
+	margin : 50px;
+	width : 45%;
+	float : left;
+	text-overflow:clip;
+	white-space:nowrap;
+}
+
+.detailTable{
+	border-collapse:collapse;
+	margin:0px auto;
+}
+
+.detailTable td{
+	padding-left : 20px;
+	padding-top : 5px;
+	background-color : #f1f1f1;
+	border-bottom : 1px solid white;
+}
+
+.detailTable th{
+	border-bottom : 1px solid white;
+	background-color : #f1f1f1;
+}
+
+.detailTable input{
+	text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+}
+
+.detailWidth{
+	width : 250px;
+	height : 22px;
+}
+
+.detailWidthShort{
+	width : 112px;
+	height : 22px;
+}
+
+#content{
+	margin : 50px;
+	float : left;
+	text-overflow:clip;
+	white-space:nowrap;
+}
+
+#contents{
+	margin:auto;
+	text-overflow:clip;
+	white-space:nowrap;
+}
+
+#input-div{
+	text-align: center;
+}
+
+.submit{
+	margin-top :10px;
+	height: 35px;
+	width : 70px;
+	border: 1px solid #3079ed;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #4d90fe;
+    border-radius: 5px;
+}
+.submitB{
+	height: 25px;
+	width : 70px;
+	border: 1px solid #3079ed;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #4d90fe;
+    border-radius: 5px;	
+}
+
+.submitC{
+	height: 35px;
+	width : auto;
+	border: 1px solid #3079ed;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #4d90fe;
+    border-radius: 5px;	
+}
+
+
+.submit:hover{
+	cursor: pointer;	
+	color: orange;
+	box-shadow: 4px 4px 5px blue;
+}
+
+.submitB:hover{
+	cursor: pointer;	
+	color: orange;
+	box-shadow: 2px 2px 3px blue;
+}
+
+.submitC:hover{
+	cursor: pointer;	
+	color: orange;
+	box-shadow: 4px 4px 5px blue;
+}
+
+.resumeList{
+	padding : 5px;
+	border-collapse: collapse;
+	border-bottom : 3px solid #f1f1f1;
+	width : 529px;
+	margin: 0px auto;
+	text-align: center;
+}
+
+.resumeTitle{
+	padding : 5px;
+	border-bottom : 3px solid #f1f1f1;
+	font-size: 34px;
+}
+
+.callTable{
+	padding : 5px;
+	border-collapse: collapse;
+	border-top : 3px solid #f1f1f1;
+	border-bottom : 3px solid #f1f1f1;
+	width : 529px;
+	margin : 0px auto;
+}
+
+.callTable th{
+	background-color: #f1f1f1;
+	padding : 5px;
+}
+
+.pTitle{
+	margin : 0px;
+	padding : 0px;
+	font-size : 34px;
+	font-weight: 800;
+}
+
+a{
+	color : #379bff;
+}
+
+a:HOVER{
+	cursor : pointer;
+	color : orange;
+}
