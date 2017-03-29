@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import DAO.EmployeeDao;
 import ENTITY.EmployeeEntity;
+import ENTITY.EmployeeLogin;
 import UTILITY.jdbc;
 
 public class EmployeeBiz {
@@ -51,7 +52,7 @@ public class EmployeeBiz {
 		return list;
 	}
 	
-	public void joinEmployee(EmployeeEntity entity) throws SQLException, ClassNotFoundException{
+	public void joinEmployee(EmployeeLogin entity) throws SQLException, ClassNotFoundException{
 		Connection con = jdbc.connection();
 		
 		try{
@@ -69,9 +70,27 @@ public class EmployeeBiz {
 		
 	}
 	
-	public EmployeeEntity checkJoin(String idd) throws SQLException, ClassNotFoundException{
+	/**/
+	public void boardDelete(EmployeeEntity entity ) throws ClassNotFoundException, SQLException{
 		Connection con = jdbc.connection();
-		EmployeeEntity entity = null;
+		
+		try{
+			System.out.println("delete board - s");
+			EmployeeDao dao = new EmployeeDao();
+			dao.boardDelete(con, entity);
+		}catch(Exception e){
+			con.rollback();
+			System.out.println("CallRecordBiz - recordDelete : " + e.getMessage());
+		}finally{
+			con.close();
+		}
+	}
+	
+	
+	
+	public EmployeeLogin checkJoin(String idd) throws SQLException, ClassNotFoundException{
+		Connection con = jdbc.connection();
+		EmployeeLogin entity = null;
 		try{
 			EmployeeDao dao = new EmployeeDao();
 			entity = dao.checkJoin(con, idd);

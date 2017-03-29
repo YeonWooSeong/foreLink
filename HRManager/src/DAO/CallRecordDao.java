@@ -11,7 +11,7 @@ import java.util.Date;
 import ENTITY.CallRecordEntity;
 
 public class CallRecordDao {
-	public ArrayList<CallRecordEntity> getAllRecords(Connection con,int number){	//ÇØ´ç Á÷¿øÀÇ ¸ðµç ÅëÈ­±â·ÏÀ» ºÒ·¯¿À´Â ¸Þ¼Òµå
+	public ArrayList<CallRecordEntity> getAllRecords(Connection con,int number){	//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½
 		ArrayList<CallRecordEntity> list = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -68,7 +68,7 @@ public class CallRecordDao {
 		return list;
 	}
 	
-	public void addRecords(Connection con, CallRecordEntity entity){	//ÅëÈ­³»¿ª Ãß°¡ ¸Þ¼Òµå
+	public void addRecords(Connection con, CallRecordEntity entity){	//ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Þ¼Òµï¿½
 		PreparedStatement pstmt = null;
 		
 		try{
@@ -159,4 +159,7 @@ public class CallRecordDao {
 		}
 	
 	}
+	
+	
+
 }

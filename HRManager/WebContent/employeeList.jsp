@@ -15,6 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:set var="now" value="<%=new java.util.Date()%>" />
 <div class="mainDiv">
 	<div class="searchDiv">
 		<div class="searchDivCenter">	
@@ -41,7 +42,7 @@
 					<td></td>
 					<td><input class="submit" type="submit" value="검색"></td>
 					<td><input class="submit" type="button" value="등록" onclick="location.href='employeeCreate.jsp'"/></td>
-					<td><input class="submit" type="button" value="삭제" onclick="deleterecord2(this)"></td>
+					<td><input class="submit" type="button" value="삭제" onclick="fn_userDel()"></td>
 					<td></td>
 					<td></td>
 					<td class="spTd1"><input type="button" class="submitC" onclick="exel(this)" value="엑셀 다운로드"></td>

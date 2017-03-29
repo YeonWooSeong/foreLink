@@ -10,7 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ENTITY.CallRecordEntity;
 import ENTITY.EmployeeEntity;
+import ENTITY.EmployeeLogin;
 import javafx.scene.control.Alert;
 
 public class EmployeeDao {
@@ -255,16 +257,35 @@ public class EmployeeDao {
 		return list;
 	}
 	
-	public EmployeeEntity checkJoin(Connection con , String idd) {	
-		EmployeeEntity entity = null;
+	public void boardDelete(Connection con,EmployeeEntity entity){
+		PreparedStatement pstmt = null;
+		try{
+			String sql = "delete from employee where no = ?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, entity.getNo());
+					
+			int result = pstmt.executeUpdate();			
+			
+			if(result == 0){
+				throw new SQLException();
+			}
+			
+		}catch(SQLException e){
+			System.out.println("CallRecordDAO - recordDelete : " + e.getMessage());
+		}
+	}
+	
+	public EmployeeLogin checkJoin(Connection con , String idd) {	
+		EmployeeLogin entity = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
-			String sql = "select pass,name from employeejoin where id= ?";
+			String sql = "select pass,name from employeeJoin where id= ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, idd);
 			rs = pstmt.executeQuery();
-			entity = new EmployeeEntity();
+			entity = new EmployeeLogin();
 			while (rs.next()) {
 				String pass = rs.getString("pass");
 				String name = rs.getString("name");
@@ -284,7 +305,7 @@ public class EmployeeDao {
 	}
 	
 	
-	public void joinEmployee(Connection con , EmployeeEntity entity) {	
+	public void joinEmployee(Connection con , EmployeeLogin entity) {	
 		PreparedStatement pstmt = null;
 		
 		try{

@@ -5,7 +5,6 @@ public class EmployeeEntity {	//�������� ��ü Ŭ����
 	private String name;	//�̸�
 	private String sex;		//����
 	private String phone;	//����ó
-	//�̸��� �߰�
 	private String email; //�̸���
 	private String birth;	//�������
 	private String license;		//�ڰ���
@@ -21,31 +20,6 @@ public class EmployeeEntity {	//�������� ��ü Ŭ����
 	private String availdate;
 	private String comment;
 	private String description;
-	
-	private String id;
-	private String pass;
-	
-	public String getId() {
-		return id;
-	}
-
-
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-
-
-	public String getPass() {
-		return pass;
-	}
-
-
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
 
 
 
