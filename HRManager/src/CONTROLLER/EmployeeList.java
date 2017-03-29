@@ -14,9 +14,7 @@ import javax.servlet.http.HttpSession;
 import BIZ.EmployeeBiz;
 import ENTITY.EmployeeEntity;
 
-/**
- * Servlet implementation class EmployeeList
- */
+
 @WebServlet("/EmployeeList")
 public class EmployeeList extends HttpServlet {		
 	private static final long serialVersionUID = 1L;
@@ -31,7 +29,7 @@ public class EmployeeList extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("start employeeList controller");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 			
@@ -62,6 +60,7 @@ public class EmployeeList extends HttpServlet {
 				empEntity.setJob(job);
 				empEntity.setGrade(grade);
 				empEntity.setSkill(skill);
+				
 				
 				list = biz.searchEmployee(empEntity);
 			}

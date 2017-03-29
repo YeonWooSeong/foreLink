@@ -15,7 +15,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:set var="now" value="<%=new java.util.Date()%>" />
 <div class="mainDiv">
 	<div class="searchDiv">
 		<div class="searchDivCenter">	
@@ -42,6 +41,7 @@
 					<td></td>
 					<td><input class="submit" type="submit" value="검색"></td>
 					<td><input class="submit" type="button" value="등록" onclick="location.href='employeeCreate.jsp'"/></td>
+					<td><input class="submit" type="button" value="삭제" onclick="deleterecord2(this)"></td>
 					<td></td>
 					<td></td>
 					<td class="spTd1"><input type="button" class="submitC" onclick="exel(this)" value="엑셀 다운로드"></td>
@@ -59,6 +59,7 @@
 	</div>
 	<br/><br/><br/>
 	<div class="listDiv">
+	<h5>" ${yourName} " 님이 로그인 하셨습니다.</h5> 
 	<div class="listDivOuter">
 	<div class="listDivInner">
 	<div class="listDivCenter">	
@@ -81,6 +82,7 @@
 				<th>가용년월</th>
 				<th>평가</th>
 				<th>비고</th>
+				<th><input id="allCheck" type="checkbox" onclick="allChk(this)"/></th>
 			</tr>
 			<c:forEach var="entity" items="${employeeList }" varStatus="status">
 				
@@ -114,6 +116,7 @@
 					</c:choose> </td>
 					<td>${entity.comment }</td>
 					<td>${entity.description }</td>
+					<td><input﻿ name="RowCheck" type="checkbox" value="${status.index}"/></td>
 				</tr>	
 					
 			</c:forEach>

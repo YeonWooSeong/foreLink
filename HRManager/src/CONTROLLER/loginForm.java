@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sun.media.jfxmedia.logging.Logger;
 
 import BIZ.EmployeeBiz;
+import DAO.EmployeeDao;
 import ENTITY.EmployeeEntity;
 
 /**
@@ -26,7 +30,6 @@ import ENTITY.EmployeeEntity;
 @WebServlet("/loginForm")
 public class loginForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -51,7 +54,7 @@ public class loginForm extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		HttpSession session = request.getSession();
+/*		HttpSession session = request.getSession();*/
 		String encType = "UTF-8";
         int maxFilesize = 5 * 1024 * 1024;
         String pathname = "/usr/local/tomcat7/webapps/resume";
@@ -60,26 +63,32 @@ public class loginForm extends HttpServlet {
                 encType, new DefaultFileRenamePolicy());
         
         String id =   mr.getParameter("id");
-		String pass = mr.getParameter("pass");
-		
-		System.out.println("view -> controller parameter id [chk]="+id);
-		System.out.println("view -> controller parameter pass  [chk] ="+pass);
-		
-		
-		try {
+        String pass = mr.getParameter("pass");
+		String name = mr.getParameter("name");
+		try { 
+			String idd = "";
+			idd = id;
 			EmployeeBiz biz = new EmployeeBiz();
 			EmployeeEntity entity = new EmployeeEntity();
+			entity = biz.checkJoin(idd);
+			System.out.println("sql- id ="+id);
+			System.out.println("sql- pass ="+pass);
+			//--
+			System.out.println("sql - name ="+name);
+			System.out.println("sql - name2 = "+entity.getName());
 			
-			entity.setId(id);
-			entity.setPass(pass);
-			System.out.println(" controller  id [chk]="+entity.getId());
-			System.out.println(" controller  pass [chk] ="+entity.getPass());
+			request.setAttribute("yourName",entity.getName());
+			RequestDispatcher rd = request.getRequestDispatcher("employeeList.jsp");
+			rd.forward(request, response);
 			
-			biz.joinEmployee(entity);
-			response.sendRedirect("employeeList.jsp");
+			/*RequestDispatcher rd = request.getRequestDispatcher("employeeCreate.jsp");
+			rd.forward(request, response);
+			//Cannot forward after response has been committed redirect는 마지막에 써줘야함 순서중요*/
+			
 			System.out.println("success controller checking id and pass");
 		} catch (Exception e) {
-			System.out.println("controller - Join - [chk] :"+e.getMessage());	
+			System.out.println("controller - Join - [chk] :"+e.getMessage());
+			response.sendRedirect("index.jsp");
 		}
 		
 	}

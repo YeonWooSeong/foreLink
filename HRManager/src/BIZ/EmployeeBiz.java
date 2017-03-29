@@ -69,18 +69,19 @@ public class EmployeeBiz {
 		
 	}
 	
-	public void checkJoin(EmployeeEntity entity) throws SQLException, ClassNotFoundException{
+	public EmployeeEntity checkJoin(String idd) throws SQLException, ClassNotFoundException{
 		Connection con = jdbc.connection();
+		EmployeeEntity entity = null;
 		try{
 			EmployeeDao dao = new EmployeeDao();
-			dao.checkJoin(con, entity);
-			System.out.println("EmployeeBiz - insertEmployee - chk join : success");
+			entity = dao.checkJoin(con, idd);
 		}catch(Exception e){
 			con.rollback();
 			System.out.println("EmployeeBiz - insertEmployee  - chk join: " + e.getMessage());
 		}finally{
 			con.close();
 		}
+		return entity;
 		
 	}
 	

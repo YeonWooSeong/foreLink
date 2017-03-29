@@ -179,8 +179,8 @@ public class EmployeeDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
-			String sql = "";
-			/*String sql = "select * from employee where 1=1 ";*/
+			String sql = "select * from employee where 1=1 ";
+			
 			String sql2="";
 			if(!((key.getName()==null)||("".equals(key.getName())))){
 				sql2+="and name like '%" + key.getName() +"%' ";
@@ -195,7 +195,7 @@ public class EmployeeDao {
 				sql2+="and job like '%" + key.getJob() +"%' ";
 	}
 			
-			String sql3=" order by no desc";
+			String sql3=" order by availdate desc";
 
 			sql+=sql2;
 			sql+=sql3;
@@ -213,7 +213,7 @@ public class EmployeeDao {
 				String sex = rs.getString("sex");
 				String birth = rs.getString("birth");
 				String phone = rs.getString("phone");
-				// �̸��� �߰�
+				// 이메일 추가
 				String email = rs.getString("email");
 			
 				String address = rs.getString("address");
@@ -233,7 +233,7 @@ public class EmployeeDao {
 				entity.setSex(sex);
 				entity.setBirth(birth);
 				entity.setPhone(phone);
-				// �̸��� �߰�
+				// 이메일 추가
 				entity.setEmail(email);
 				entity.setAddress(address);
 				entity.setSkill(skill);
@@ -248,37 +248,43 @@ public class EmployeeDao {
 				
 				list.add(entity);
 			}
-			
 		}catch(SQLException e){
 			System.out.println("EmployeeDAO - searchResultEmployee : " + e.getMessage());
-			System.out.println("chk");
 		}
 		
 		return list;
 	}
 	
-	
-	public void joinEmployee(Connection con , EmployeeEntity entity) {	
+	public EmployeeEntity checkJoin(Connection con , String idd) {	
+		EmployeeEntity entity = null;
 		PreparedStatement pstmt = null;
-		
+		ResultSet rs = null;
 		try{
-			String sql = "select id as id,pass as pass from employeejoin where id ='?',and pass = '?'";
+			String sql = "select pass,name from employeejoin where id= ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, entity.getId());
-			pstmt.setString(2, entity.getPass());
-			int result = 0;
-			result = pstmt.executeUpdate();
-			System.out.println("success create join- chk");
-			if(result == 0){
-				throw new SQLException("join - Insert error chk");
+			pstmt.setString(1, idd);
+			rs = pstmt.executeQuery();
+			entity = new EmployeeEntity();
+			while (rs.next()) {
+				String pass = rs.getString("pass");
+				String name = rs.getString("name");
+				entity.setPass(pass);
+				entity.setName(name);
+				System.out.println("cchhkk - pass (sql)"+pass);
+				System.out.println("cchhkk - name (sql)"+name+"::"+entity.getName());
 			}
+			
+			
+			System.out.println("+++"+pstmt);
+
 		}catch(SQLException e){
 			System.out.println("EmployeeDAO - join -  Employee  chk error execption: " + e.getMessage());
 		}
+		return entity;
 	}
 	
 	
-	public void checkJoin(Connection con , EmployeeEntity entity) {	
+	public void joinEmployee(Connection con , EmployeeEntity entity) {	
 		PreparedStatement pstmt = null;
 		
 		try{
@@ -289,10 +295,9 @@ public class EmployeeDao {
 			
 			pstmt.setString(1, entity.getId());
 			pstmt.setString(2, entity.getPass());
-			
+			pstmt.setString(3, entity.getName());
 			int result = 0;
 			result = pstmt.executeUpdate();
-			System.out.println("success create join");
 			if(result == 0){
 				throw new SQLException("join - Insert error");
 			}
