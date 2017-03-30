@@ -117,7 +117,7 @@
 					</c:choose> </td>
 					<td>${entity.comment }</td>
 					<td>${entity.description }</td>
-					<td><input﻿ name="RowCheck" type="checkbox" value="${status.index}"/></td>
+					<td><input﻿ name="memberChk" id="memberChk" type="checkbox" value="${status.index}"/></td>
 				</tr>	
 					
 			</c:forEach>

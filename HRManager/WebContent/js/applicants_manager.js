@@ -1,6 +1,6 @@
 // 1.모두 체크
   function allChk(obj){
-      var chkObj = document.getElementsByName("RowCheck");
+      var chkObj = document.getElementsByName("memberChk");
       var rowCnt = chkObj.length - 1;
       var check = obj.checked;
       if (check) {﻿
@@ -19,14 +19,14 @@
 ﻿ ﻿ 
 //﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
    function fn_userDel(){
-  var userid = "";
-  var memberChk = document.getElementsByName("RowCheck");
+  var chkId = "";
+  var memberChk = document.getElementsByName("memberChk");
   var chked = false;
   var indexid = false;
   for(i=0; i < memberChk.length; i++){
    if(memberChk[i].checked){
     if(indexid){
-    	userid = memberChk[i].value;
+    	chkId = memberChk[i].value;
         indexid = true;
     }
    }
@@ -40,12 +40,6 @@
     document.getElementById("boardDelete").submit();
      } 
   }﻿
-
-
-
-
-
-
 
 
 

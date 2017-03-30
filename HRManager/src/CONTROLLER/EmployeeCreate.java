@@ -43,10 +43,10 @@ public class EmployeeCreate extends HttpServlet {		//���ο� ����
 		response.setContentType("text/html;charset=utf-8");
 		
 		HttpSession session = request.getSession();
-		
+/*		
 		if(session.getAttribute("loginInfo")==null || !session.getAttribute("loginInfo").equals("admin")){
 			response.sendRedirect("index.jsp");
-		}
+		}*/
 
 		String encType = "UTF-8";
         int maxFilesize = 5 * 1024 * 1024;
@@ -272,7 +272,6 @@ public class EmployeeCreate extends HttpServlet {		//���ο� ����
 		}catch(Exception e){
 			System.out.println("Controller - EmployeeCreate : " + e.getMessage());
 		}
-		
 		response.sendRedirect("EmployeeList");
 	}
 	

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import BIZ.EmployeeBiz;
 import ENTITY.EmployeeEntity;
+import ENTITY.EmployeeLogin;
 
 
 @WebServlet("/EmployeeList")
@@ -70,6 +71,8 @@ public class EmployeeList extends HttpServlet {
 			request.setAttribute("searchSkill",skill);
 			request.setAttribute("employeeList", list);
 			
+			
+	
 			RequestDispatcher rd = request.getRequestDispatcher("employeeList.jsp");
 			
 			rd.forward(request, response);

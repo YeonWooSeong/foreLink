@@ -71,16 +71,16 @@ public class EmployeeBiz {
 	}
 	
 	/**/
-	public void boardDelete(EmployeeEntity entity ) throws ClassNotFoundException, SQLException{
+	public void boardDelete(int entityNo ) throws ClassNotFoundException, SQLException{
 		Connection con = jdbc.connection();
 		
 		try{
-			System.out.println("delete board - s");
+			System.out.println("delete board - s and chk entity.no ="+entityNo);
 			EmployeeDao dao = new EmployeeDao();
-			dao.boardDelete(con, entity);
+			dao.boardDelete(con, entityNo);
 		}catch(Exception e){
 			con.rollback();
-			System.out.println("CallRecordBiz - recordDelete : " + e.getMessage());
+			System.out.println("CallRecordBiz - boardDelete : " + e.getMessage());
 		}finally{
 			con.close();
 		}
