@@ -70,21 +70,7 @@ public class EmployeeBiz {
 		
 	}
 	
-	/**/
-	public void boardDelete(int entityNo ) throws ClassNotFoundException, SQLException{
-		Connection con = jdbc.connection();
-		
-		try{
-			System.out.println("delete board - s and chk entity.no ="+entityNo);
-			EmployeeDao dao = new EmployeeDao();
-			dao.boardDelete(con, entityNo);
-		}catch(Exception e){
-			con.rollback();
-			System.out.println("CallRecordBiz - boardDelete : " + e.getMessage());
-		}finally{
-			con.close();
-		}
-	}
+
 	
 	
 	
@@ -172,4 +158,21 @@ public class EmployeeBiz {
 		
 		return no;
 	}
+	
+	
+	public void deleteBoard(int number) throws ClassNotFoundException, SQLException{
+		Connection con = jdbc.connection();
+		
+		try{
+			EmployeeDao dao = new EmployeeDao();
+			
+			dao.boardDelete(con, number);
+			System.out.println("Biz boardDelete and number set ="+number);
+		}catch(Exception e){ 
+			System.out.println("FileBiz -boardDelete : " + e.getMessage());
+		}finally{
+			con.close();
+		}
+	}
+	
 }

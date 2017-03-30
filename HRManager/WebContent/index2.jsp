@@ -14,8 +14,8 @@
 <div class="detailDivInner">
 <div class="detailDivCenter">
 	<img src="./content/forelink_logo.jpg">
-	<h1>인적 자원 관리 시스템. - 신규등록</h1>
-	<form id="joinFore" action="joinCreate" method="post" enctype="multipart/form-data">
+	<h1>인적 자원 관리 시스템. - 신규등록.</h1>
+	<form id="joinFore" action="joinCreate2" method="post" enctype="multipart/form-data">
 	<table class="loginTable">
 		<tr>
 			<th>ID</th>

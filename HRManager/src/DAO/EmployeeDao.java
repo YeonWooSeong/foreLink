@@ -257,12 +257,14 @@ public class EmployeeDao {
 		return list;
 	}
 	
-	public void boardDelete(Connection con,int entityNo){
+	public void boardDelete(Connection con,int no){
 		PreparedStatement pstmt = null;
+		System.out.println("no set ="+no);
 		try{
 			String sql = "delete from employee where no = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, entityNo);
+			pstmt.setInt(1, no);
+			
 			System.out.println("delete sql check +="+sql);
 			int result = pstmt.executeUpdate();			
 			

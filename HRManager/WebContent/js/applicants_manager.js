@@ -1,45 +1,45 @@
 // 1.모두 체크
-  function allChk(obj){
-      var chkObj = document.getElementsByName("memberChk");
-      var rowCnt = chkObj.length - 1;
-      var check = obj.checked;
-      if (check) {﻿
-          for (var i=0; i<=rowCnt; i++){
-           if(chkObj[i].type == "checkbox")
-               chkObj[i].checked = true; 
-          }
-      } else {
-          for (var i=0; i<=rowCnt; i++) {
-           if(chkObj[i].type == "checkbox"){
-               chkObj[i].checked = false; 
-           }
-          }
-      }
-  } 
-﻿ ﻿ 
+function CheckAll_dd(){ 
+var gChk = document.getElementsByName("check_group"); //체크박스의 name값
+var nChk = document.getElementsByName("check_num"); 
+if(gChk[0].checked){ 
+for(i=0; i<nChk.length;i++){ 
+nChk[i].checked = true; //체크되어 있을경우 설정변경
+}
+}else{
+for(i=0; i<nChk.length;i++){ 
+nChk[i].checked = false; 
+} 
+}
+}
 //﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
-   function fn_userDel(){
+   function fn_userDel_dd(){
   var chkId = "";
-  var memberChk = document.getElementsByName("memberChk");
+  var memberChk = document.getElementsByName("check_num");
   var chked = false;
   var indexid = false;
   for(i=0; i < memberChk.length; i++){
    if(memberChk[i].checked){
-    if(indexid){
-    	chkId = memberChk[i].value;
+       	chkId = memberChk[i].value;
         indexid = true;
-    }
    }
   }
   if(!indexid){
-   alert("삭제할 사용자를 체크해 주세요");
+   alert("삭제할 사용자를 체크해 주세요 .");
    return;
   }
+  
   var agree=confirm("삭제 하시겠습니까?");
      if (agree){
-    document.getElementById("boardDelete").submit();
+    	 alert("chkId ="+chkId);
+    document.getElementById("boardDelete2").submit();
      } 
   }﻿
+
+
+
+
+
 
 
 
@@ -63,7 +63,7 @@ function Join(input){
 }
 
 
-
+  
 function login(){
 	
 	var id=document.getElementById("id").value;
@@ -175,6 +175,12 @@ function employeeCreate(input){
 
 function deleteFile(input){
 	if(confirm("파일을 삭제하시겠습니까?")){
+		input.parentNode.submit();
+	}
+}
+
+function deleteBoard(input){
+	if(confirm("글을 삭제하시겠습니까?")){
 		input.parentNode.submit();
 	}
 }

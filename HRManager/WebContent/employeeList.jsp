@@ -42,7 +42,7 @@
 					<td></td>
 					<td><input class="submit" type="submit" value="검색"></td>
 					<td><input class="submit" type="button" value="등록" onclick="location.href='employeeCreate.jsp'"/></td>
-					<td><input class="submit" type="button" value="삭제" onclick="fn_userDel()"></td>
+					<!-- <td><input class="submit" type="button" value="삭제" onclick="fn_userDel()"></td> -->
 					<td></td>
 					<td></td>
 					<td class="spTd1"><input type="button" class="submitC" onclick="exel(this)" value="엑셀 다운로드"></td>
@@ -83,7 +83,8 @@
 				<th>가용년월</th>
 				<th>평가</th>
 				<th>비고</th>
-				<th><input id="allCheck" type="checkbox" onclick="allChk(this)"/></th>
+				<th></th>
+				<!-- <th><input id="allCheck" name="check_group" type="checkbox" onclick="CheckAll()"/></th> -->
 			</tr>
 			<c:forEach var="entity" items="${employeeList }" varStatus="status">
 				
@@ -117,7 +118,18 @@
 					</c:choose> </td>
 					<td>${entity.comment }</td>
 					<td>${entity.description }</td>
-					<td><input﻿ name="memberChk" id="memberChk" type="checkbox" value="${status.index}"/></td>
+					<td>
+						<form method="post" action="boardDelete">
+						<input type="button" onclick="deleteBoard(this)" value="삭제">
+						<input type="hidden" value="${status.index  }" name="index">
+					</form>
+					</td>
+				<%--	<td>
+					 <form action="boardDelete" method="post" id="boardDelete2" enctype="multipart/form-data">
+					<input type="checkbox"  name="check_num" id="memberChk"  value="${entity.name}">
+					<input type="hidden" name="gid"> 
+					</form> 
+					</td>--%>
 				</tr>	
 					
 			</c:forEach>

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -15,15 +16,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import BIZ.EmployeeBiz;
 import ENTITY.EmployeeLogin;
 
-/**
- * Servlet implementation class loginForm
- */
 @WebServlet("/loginForm")
 public class loginForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public loginForm() {
         super();
         // TODO Auto-generated constructor stub
@@ -43,9 +39,6 @@ public class loginForm extends HttpServlet {
 		
 		
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=utf-8");
-		
-/*		HttpSession session = request.getSession();*/
 		String encType = "UTF-8";
         int maxFilesize = 5 * 1024 * 1024;
         String pathname = "/usr/local/tomcat7/webapps/resume";
@@ -55,7 +48,7 @@ public class loginForm extends HttpServlet {
         
         String id =   mr.getParameter("id");
         String pass = mr.getParameter("pass");
-		String name = mr.getParameter("name");
+        HttpSession session = request.getSession();
 		try { 
 			String idd = "";
 			idd = id;
@@ -64,10 +57,8 @@ public class loginForm extends HttpServlet {
 			entity = biz.checkJoin(idd);
 			System.out.println("sql- id ="+id);
 			System.out.println("sql- pass ="+pass);
-			//--
-			System.out.println("sql - name ="+name);
 			System.out.println("sql - name2 = "+entity.getName());
-			
+			session.setAttribute("loginInfo", "admin");
 			request.setAttribute("yourName",entity.getName());
 			RequestDispatcher rd = request.getRequestDispatcher("employeeList.jsp");
 			rd.forward(request, response);
