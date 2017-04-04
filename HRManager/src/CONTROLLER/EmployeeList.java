@@ -41,11 +41,11 @@ public class EmployeeList extends HttpServlet {
 		String grade=request.getParameter("grade");
 		String skill=request.getParameter("skill");
 		
-		HttpSession session = request.getSession();
+	/*	HttpSession session = request.getSession();
 	
 		if(session.getAttribute("loginInfo")==null || !session.getAttribute("loginInfo").equals("admin")){
 			response.sendRedirect("index.jsp");
-		}
+		}*/
 				
 		try{
 			EmployeeBiz biz = new EmployeeBiz();

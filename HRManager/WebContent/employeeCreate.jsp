@@ -7,8 +7,10 @@
 <link rel="stylesheet" type="text/css" href="css/employeeDetail.css">
 <script type="text/javascript" src="js/applicants_manager.js"></script>
 <script type="text/javascript">
-	
 
+
+
+	
 
 	function checkDupSkill() {
 		
@@ -81,7 +83,7 @@
 								<input type="radio" name="sex" value="여자">여</td>
 			</tr>	
 			<tr>
-				<th>연락처</th><td colspan="3"><input class="detailWidth" type="text" name="phone" id="phone" maxlength="13">
+				<th>연락처</th><td colspan="3"><input class="detailWidth" type="text" name="phone" id="phone" maxlength="13" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;">
 				ex)010-0000-0000
 				</td>
 				
@@ -94,7 +96,7 @@
 				<th>주 소</th><td colspan="3"><input class="detailWidth"  type="text" name="address"></td>
 			</tr>
 			<tr>
-				<th>생년월일</th><td><input class="detailWidth" type="text" name="birth" maxlength="6">ex)800101</td>
+				<th>생년월일</th><td><input class="detailWidth" type="text" name="birth" maxlength="6" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;">ex)800101</td>
 			</tr>
 			<tr>	
 				<th>자격증</th><td><input type="radio" name="license" value="유">유
@@ -110,7 +112,7 @@
 								</select></td>
 			</tr>
 			<tr>	
-				<th>졸업년월</th><td><input class="detailWidth" type="text" name="graduateDate"></td>
+				<th>졸업년월</th><td><input class="detailWidth" type="text" name="graduateDate" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;"></td>
 				
 			</tr>	
 			
@@ -176,8 +178,8 @@
 				</td>
 			</tr>	
 			<tr>
-				<th>경력시작년월</th><td><input class="detailWidthShort" type="text" name="startDate1" size="3" id="startDate1" maxlength="4">년
-									<input class="detailWidthShort" type="text" name="startDate2" size="3" id="startDate2" maxlength="2">월</td>
+				<th>경력시작년월</th><td><input class="detailWidthShort" type="text" name="startDate1" size="3" id="startDate1" maxlength="4" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;">년
+									<input class="detailWidthShort" type="text" name="startDate2" size="3" id="startDate2" maxlength="2" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;">월</td>
 			</tr>
 			<tr>	
 				<th>등 급</th><td>
@@ -185,8 +187,8 @@
 				</td>
 			</tr>
 			<tr>
-				<th>공백기간</th><td><input class="detailWidthShort" type="text" name="blankPeriod1" value="0" size="3" maxlength="4">년
-							<input class="detailWidthShort" type="text" name="blankPeriod2" value="0" size="3" maxlength="2">개월</td>
+				<th>공백기간</th><td><input class="detailWidthShort" type="text" name="blankPeriod1" value="0" size="3" maxlength="4" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;">년
+							<input class="detailWidthShort" type="text" name="blankPeriod2" value="0" size="3" maxlength="2" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;">개월</td>
 			</tr>
 			<tr>	
 				<th>총경력</th><td>
@@ -206,7 +208,7 @@
 				<th>비고</th><td><input class="detailWidth" type="text" name="description"></td>
 			</tr>
 			<tr>
-				<th>가용년월</th><td  colspan="3"><input class="detailWidth"  type="text" name="availDate"></td>
+				<th>가용년월</th><td  colspan="3"><input class="detailWidth"  type="text" name="availDate" id="availDate" maxlength="8" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" style="IME-MODE:disabled;"></td>
 			</tr>
 			<tr>
 			<td colspan=4>

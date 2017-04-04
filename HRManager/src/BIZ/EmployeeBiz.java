@@ -160,14 +160,13 @@ public class EmployeeBiz {
 	}
 	
 	
-	public void deleteBoard(int number) throws ClassNotFoundException, SQLException{
+	public void deleteBoard(int no) throws ClassNotFoundException, SQLException{
 		Connection con = jdbc.connection();
 		
 		try{
 			EmployeeDao dao = new EmployeeDao();
 			
-			dao.boardDelete(con, number);
-			System.out.println("Biz boardDelete and number set ="+number);
+			dao.boardDelete(con, no);
 		}catch(Exception e){ 
 			System.out.println("FileBiz -boardDelete : " + e.getMessage());
 		}finally{

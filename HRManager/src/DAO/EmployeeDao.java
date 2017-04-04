@@ -265,7 +265,7 @@ public class EmployeeDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no);
 			
-			System.out.println("delete sql check +="+sql);
+			System.out.println("delete sql check +="+sql+" , and pstmt"+pstmt);
 			int result = pstmt.executeUpdate();			
 			
 			if(result == 0){

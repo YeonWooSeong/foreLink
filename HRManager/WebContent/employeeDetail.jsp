@@ -16,11 +16,8 @@
 	EmployeeEntity entity=(EmployeeEntity)(request.getAttribute("employee"));
 	String startDate1=entity.getStartdate().substring(0,4);
 	String startDate2=entity.getStartdate().substring(6,7);
-
 	String blankPeriod1=entity.getBlankPeriod().split("년")[0];
 	String blankPeriod2=entity.getBlankPeriod().substring(blankPeriod1.length()+2,entity.getBlankPeriod().length()-2);
-
-
  	%>
 <title>상세정보</title>
 </head>
@@ -158,8 +155,8 @@
 			</tr>
 			<tr>
 				<th>공백기간</th>
-				<td><input class="detailWidthShort" type="text" name="blankPeriod1" value=<%=blankPeriod1%> size="3" maxlength="4">년
-				    <input class="detailWidthShort" type="text" name="blankPeriod2" value=<%=blankPeriod2%> size="3" maxlength="2">개월
+				<td><input class="detailWidthShort" type="text" name="blankPeriod1" id="emptyDate1" value=<%=blankPeriod1%> size="3" maxlength="4">년
+				    <input class="detailWidthShort" type="text" name="blankPeriod2" id="emptyDate2" value=<%=blankPeriod2%> size="3" maxlength="2">개월
 				</td>
 			</tr>
 			<tr>
@@ -201,11 +198,19 @@
 				</td>
 			</tr>
 			</table>
+			
 		<div id="input-div">
 			<input class="submit" type="button" value="업데이트" onclick="update()">
 			<input class="submit" type="button" value="돌아가기" onclick="location.href='EmployeeList'">
 		</div>
+	</form>
+	<form method="post" action="boardDelete">
+		<div id="input-div">
+		<input class="submit" type="button" value="삭제" onclick="deleteBoard(this)">
+		<input type="hidden" value="${entity.no  }" name="index">		
+		</div>
 	</form> 
+		
 	</div>
 	<div id="content">
 	<table class="resumeList">
