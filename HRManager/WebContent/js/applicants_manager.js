@@ -37,8 +37,9 @@ nChk[i].checked = false;
   var agree=confirm("삭제 하시겠습니까?");
      if (agree){
     	 alert("chkId ="+send_array);
-    	 
+    	 document.getElementById("check_num").value = send_array.toString();
     	 document.getElementById("chkboxDelete").submit();
+    	 
     	
      } 
   }
