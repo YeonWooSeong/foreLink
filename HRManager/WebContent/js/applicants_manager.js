@@ -16,7 +16,7 @@ nChk[i].checked = false;
 }
 
 //﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
- function fn_userDel(input){
+ function fn_userDel(input){ 
   var send_array = Array();
   var send_cnt = 0;
   var memberChk = document.getElementsByName("check_num")
