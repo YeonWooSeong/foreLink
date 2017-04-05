@@ -175,18 +175,18 @@ public class EmployeeBiz {
 	}
 	
 	
-	public void deleteEmployee(EmployeeLogin entity) throws SQLException, ClassNotFoundException{
+	public void deleteEmployee(String name) throws SQLException, ClassNotFoundException{
 		Connection con = jdbc.connection();
 		
 		try{
 				
 			EmployeeDao dao = new EmployeeDao();
 			
-			dao.joinEmployee(con, entity);
-			System.out.println("EmployeeBiz - insertEmployee : success");
+			dao.deleteEmployee(con, name);
+			System.out.println("EmployeeBiz - deleteEmployee : success set name="+name);
 		}catch(Exception e){
 			con.rollback();
-			System.out.println("EmployeeBiz - insertEmployee : " + e.getMessage());
+			System.out.println("EmployeeBiz - deleteEmployee : " + e.getMessage());
 		}finally{
 			con.close();
 		}

@@ -485,4 +485,25 @@ public class EmployeeDao {
 		
 		return no;
 	}
+
+	public void deleteEmployee(Connection con, String name) {
+		PreparedStatement pstmt = null;
+		System.out.println("set name Query ="+name);
+		try{
+			String sql = "delete from employee where name in"+"("+"?"+")"+"";
+			pstmt = con.prepareStatement(sql);
+			//pstmt.setString(1, entity);
+			pstmt.setNString(1, name);
+			
+			System.out.println("deleteEmployee +="+sql+" , and pstmt"+pstmt);
+			int result = pstmt.executeUpdate();			
+			
+			if(result == 0){
+				throw new SQLException();
+			}
+			
+		}catch(SQLException e){
+			System.out.println("deleteEmployee - recordDelete : " + e.getMessage());
+		}
+	}
 }
